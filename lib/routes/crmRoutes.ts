@@ -29,6 +29,9 @@ export class Routes {
         // Delete contact with ID
         app.route('/contact/:contactId')
             .delete(this.contactController.deleteContact)
+
+        app.route('/login')
+            .post(this.contactController.loginContact);
         
 
     }

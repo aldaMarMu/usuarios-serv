@@ -29,17 +29,32 @@ export const ContactSchema = new Schema({
 
     firstName:{
         type: String,
-        trim: true
+        trim: true,
+        default: 'Aaa'
     },
     
     lastName:{
         type: String,
-        trim: true
+        trim: true,
+        default: 'Aaa'
     },    
     
     created_date: {
         type: Date,
         default: Date.now
+    }
+});
+
+export const LoginShcema = new Schema({
+    logemail: {
+        type: String,
+        required: true,
+        trim:true,
+    },
+    logpassword: {
+        type: String,
+        required: true,
+        trim: true
     }
 });
 
