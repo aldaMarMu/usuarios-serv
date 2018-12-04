@@ -19,7 +19,8 @@ export class ContactController {
                 'Pass not match');
             return next(err);
         }
-        if (req.body.email && req.body.username && req.body.password && req.body.passwordConf) {
+
+        if (req.body.email && req.body.username && req.body.password && req.body.passwordConf && req.body.firstName && req.body.lastName && req.body.bornDate) {
             bcrypt.hash(req.body.password, saltRounds, function (err, hash) {
                 if (err) {
                     res.status(400).send(
@@ -31,9 +32,26 @@ export class ContactController {
                         username: req.body.username,
                         password: hash,
                         passwordConf: hash,
-                        firstname: req.body.firstname,
-                        lastname: req.body.lastname
+                        firstName: req.body.firstName,
+                        lastName: req.body.lastName,
+                        bornDate: req.body.bornDate
                     }
+                    const hoy: Date = new Date();
+                    const edad: Date= new Date(contactData.bornDate);
+                    const minimo: Number= 441796600000;
+                /*    console.log(edad);
+                    console.log(hoy);
+                    console.log((hoy.getTime() - edad.getTime()));
+                    console.log(minimo);
+                    console.log(contactData);
+                */
+                    if((hoy.getTime() - edad.getTime()) < minimo){
+                        var error_date = new Error('You are too young! You shall not pass');
+                        res.status(400).send(
+                            'You are too young! You shall not pass');
+                        return next(error_date);
+                    }
+                    
                     Contact.create(contactData, function (error, contact) {
                         if (error) {
                             res.send(error);
@@ -41,9 +59,7 @@ export class ContactController {
                         }
                         //req.session.userId = contact._id;
                         return res.json(contact);
-
                         //return res.redirect('/contact');
-
                     });
                 }
             });
@@ -52,7 +68,7 @@ export class ContactController {
         } else {
             var err = new Error('All fields required');
             res.status(400).send(
-                'All fields required: email, username, pass, passconf, firstname, lastname.');
+                'All fields required: email, username, pass, passconf, firstname, lastname and bornDate (mm-dd-aaaa).');
             return next(err);
         }
 

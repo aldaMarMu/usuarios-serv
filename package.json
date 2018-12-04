@@ -1,5 +1,5 @@
 {
-  "name": "@risingstack/rest-api-typescript",
+  "name": "usuarios-serv",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",

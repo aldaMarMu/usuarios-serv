@@ -1,4 +1,4 @@
-FROM risingstack/alpine:3.4-v6.9.4-4.2.0
+FROM usuarios-serv
 
 ENV PORT 3001
 

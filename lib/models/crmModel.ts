@@ -6,8 +6,9 @@ export const ContactSchema = new Schema({
     email:{
         type: String,
         unique: true,
-        required: true,
-        trim: true
+        required: 'Please enter your email',
+        trim: true,
+        lowercase: true
     },
 
     username:{
@@ -30,18 +31,22 @@ export const ContactSchema = new Schema({
     firstName:{
         type: String,
         trim: true,
-        default: 'Aaa'
+        required: true,
     },
     
     lastName:{
         type: String,
         trim: true,
-        default: 'Aaa'
+        required: true
     },    
+
+    bornDate: {
+        type: Date,
+        required: true,
+    },
     
     created_date: {
-        type: Date,
-        default: Date.now
+        type: Date
     }
 });
 
