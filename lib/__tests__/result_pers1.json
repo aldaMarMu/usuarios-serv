@@ -1,0 +1,11 @@
+{
+    "_id":"595f0ceba07958ed50bea641", 
+    "email": "email_teste1@gmail.com", 
+    "username": "aaa1", 
+    "password": "$2b$10$eluliCmDijS7dhDGzEQMeO2YOckk7su1mIdk6bfx9ReLAwDtjREK2",
+    "passwordConf": "$2b$10$eluliCmDijS7dhDGzEQMeO2YOckk7su1mIdk6bfx9ReLAwDtjREK2",
+    "firstName": "Aaaa",
+    "lastName": "Bbbb",
+    "bornDate": "2015-03-12T23:00:00.000Z",
+    "__v": 0
+}

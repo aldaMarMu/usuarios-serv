@@ -23,6 +23,7 @@ class App {
 
         //support application/x-www-form-urlencoded post data
         this.app.use(bodyParser.urlencoded({ extended: false }));
+        this.app.use(express.static('public'));
     }
 
     private mongoSetUp(): void{

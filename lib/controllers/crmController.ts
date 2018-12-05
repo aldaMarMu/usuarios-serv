@@ -58,6 +58,7 @@ export class ContactController {
                             return next(error);
                         }
                         //req.session.userId = contact._id;
+                        res.send(200);
                         return res.json(contact);
                         //return res.redirect('/contact');
                     });
@@ -137,8 +138,9 @@ export class ContactController {
                 }
                 console.log(req.body.logpassword);
                 bcrypt.hash(req.body.logpassword, saltRounds).then(function(hash) {
-                    //console.log(contactFinded.password);
-                    //if(hash===contactFinded.password){}
+                    /*console.log("************Contact Finded*******************");
+                    console.log(contactFinded);
+                    console.log(contactFinded.password);*/
                     bcrypt.compare(req.body.logpassword, contactFinded.password, function(error, result){
                         //console.log(req.body.logpassword);
                         if(error){
